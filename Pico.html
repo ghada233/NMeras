@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NMeras - AI Powered EBP Platform</title>
+    
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: white;
+            color:#646d98;
+        }
+        .btn {
+            background-color:#646d98;
+            border:none;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #384584;
+            font-size: 25px;
+          }
+          
+          .logo img {
+            width: 50px; /* Adjust the width of the logo image as needed */
+            margin-right: 10px; /* Add some spacing between the logo and the application name */
+          }
+          
+          .logon {
+            color: #384584;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .logon img {
+            width: 80px; /* Adjust the width of the logo image as needed */
+            margin-right: 10px; /* Add some spacing between the logo and the application name */
+          }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .text-input label {
+            font-weight: bold;
+        }
+
+        .result-message {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+          <img src="images/NMERASs.png" alt="Logo">
+          <h1>NMeras</h1>
+      </div>
+  
+               
+      </nav>
+      
+      <nav class="navbar navbar-expand-lg navbar-dark" style=" background-color:#646d98">
+        <!-- Navigation links go here -->
+    </nav>
+    <br>
+    <br>
+
+    <main class="container">
+        <div class="section">
+            <h2>Formulate PICO Question</h2>
+            <form id="pico-form" onsubmit="submitForm(event)">
+                <div class="form-group text-input">
+                    <label for="pico-question">PICO Question:</label>
+                    <textarea class="form-control" id="pico-question" name="pico-question" rows="4" cols="50"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    
+        <div class="section" id="result-section" style="display: none;">
+            <h2>Result</h2>
+            <div id="result" class="result-message">
+                <!-- Display the result or the corrected question -->
+            </div>
+        </div>
+    
+        <div class="section" id="research-section" style="display: none;">
+            <h2>Find Research Similarity with PICO</h2>
+            <a href="RankRresarh.html" class="btn btn-primary">PICO Research</a>
+        </div>
+    </main>
+    
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+    
+            const picoQuestion = document.getElementById('pico-question').value;
+    
+            // Check if the user input matches the correct question
+            const correctQuestion = "In pediatric patients with type 1 diabetes, does continuous glucose monitoring improve glycemic control compared to traditional fingerstick monitoring?";
+            const isCorrect = picoQuestion.trim() === correctQuestion;
+    
+            // Display the result or the corrected question
+            const resultElement = document.getElementById('result');
+            if (isCorrect) {
+                resultElement.innerHTML = `<p class="text-success">Your PICO question is correct!</p>`;
+    
+                // Show the research section
+                const researchSection = document.getElementById('research-section');
+                researchSection.style.display = 'block';
+            } else {
+                resultElement.innerHTML = `<p class="text-danger">Incorrect PICO question. The correct question is:</p>
+                                           <p>${correctQuestion}</p>`;
+    
+                // Hide the research section
+                const researchSection = document.getElementById('research-section');
+                researchSection.style.display = 'none';
+            }
+    
+            // Show the result section
+            const resultSection = document.getElementById('result-section');
+            resultSection.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

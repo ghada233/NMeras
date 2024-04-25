@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NMeras - AI Powered EBP Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #646d98;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            margin: 0;
+        }
+
+        nav {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #646d98;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+        }
+
+        #result-section {
+            display: none;
+        }
+
+        #correction-section {
+            display: none;
+        }
+
+        .pico-explanation {
+            background-color: #646d98;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NMeras</h1>
+        <p>AI-powered platform for Evidence-Based Practice</p>
+    </header>
+
+    <nav>
+        <!-- Navigation links go here -->
+    </nav>
+
+    <main>
+        <section>
+            <h2>Formulate PICO Question</h2>
+            <div class="pico-explanation">
+                <h3>What is PICO?</h3>
+                <p>
+                    PICO is a framework for creating focused clinical questions in Evidence-Based Practice (EBP). It stands for:
+                </p>
+                <ul>
+                    <li><strong>P</strong> - Patient, Problem or Population</li>
+                    <li><strong>I</strong> - Intervention or Exposure</li>
+                    <li><strong>C</strong> - Comparison</li>
+                    <li><strong>O</strong> - Outcome</li>
+                </ul>
+                <p>
+                    By formulating a clear PICO question, you can improve the efficiency of your literature search and find the most relevant evidence for your clinical decision-making.
+                </p>
+            </div>
+            <form id="pico-form" onsubmit="submitForm(event)">
+                <div class="text-input">
+                    <label for="pico-question">PICO Question:</label>
+                    <textarea id="pico-question" name="pico-question" rows="4" cols="50"></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section id="result-section">
+            <h2>Result</h2>
+            <div id="result">
+                <!-- Display the result or percentage here -->
+            </div>
+        </section>
+
+        <section id="correction-section">
+            <h2>Correct PICO Question</h2>
+            <form id="correction-form" onsubmit="correctForm(event)">
+                <div class="text-input">
+                    <label for="correction-question">Correction:</label>
+                    <textarea id="correction-question" name="correction-question" rows="4" cols="50"></textarea>
+                </div>
+                <button type="submit">Submit Correction</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer content goes here -->
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // JavaScript code goes here
+    </script>
+</body>
+</html>
